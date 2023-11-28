@@ -30,7 +30,7 @@ ARG ORAS_VERSION="1.1.0"
 COPY --from=builder /usr/local/apptainer /usr/local/apptainer
 ENV PATH="/usr/local/apptainer/bin:$PATH" \
     APPTAINER_TMPDIR="/tmp-apptainer"
-RUN apk add --no-cache ca-certificates libseccomp squashfs-tools tzdata bash sshpass openssh p7zip curl nano docker openrc \
+RUN apk add --no-cache ca-certificates libseccomp squashfs-tools tzdata bash sshpass openssh p7zip curl nano docker openrc git \
     && rc-update add docker boot \
     && mkdir -p $APPTAINER_TMPDIR \
     && cp /usr/share/zoneinfo/UTC /etc/localtime \
